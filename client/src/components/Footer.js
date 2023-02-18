@@ -17,6 +17,9 @@ const FooterBackGround = styled.div`
   @media screen and (max-width: 980px) {
     flex-wrap: wrap;
   }
+  @media (min-width: 0px) and (max-width: 832px) {
+    flex-direction: column;
+  }
   .footer-nav__div {
     display: flex;
     flex-flow: row nowrap;
@@ -30,8 +33,14 @@ const FooterBackGround = styled.div`
       justify-content: start;
       gap: 0px;
     }
+    @media (min-width: 0px) and (max-width: 832px) {
+      margin-left: 15px;
+    }
   }
   .footer-nav__ul {
+    li {
+      white-space: nowrap;
+    }
     @media screen and (max-width: 980px) {
       display: flex;
       flex-direction: row;
@@ -46,6 +55,7 @@ const FooterBackGround = styled.div`
     color: #babfc3;
     padding: 0px;
     margin: 0px 0px 15px 0px;
+    white-space: nowrap;
   }
   .footer-log__img {
     flex: 0 0 auto;
@@ -55,16 +65,18 @@ const FooterBackGround = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 25%;
+    max-width: 20%;
+    /* width: 25%; */
     @media screen and (max-width: 980px) {
-      width: 100%;
+      max-width: 100%;
     }
   }
   .footer-logo__div {
     margin-right: 10px;
+    min-width: 55px;
   }
   .footer-col__div {
-    padding: 0px 30px 24px 0px;
+    padding: 0px 0px 24px 0px;
   }
   .footer-social__ul {
     display: flex;
@@ -88,12 +100,16 @@ const FooterBackGround = styled.div`
     }
   }
   a {
-    color: #babfc3;
+    color: #8c949b;
     font-size: 13px;
     padding: 4px 0px;
   }
+  a:hover {
+    color: #babfc3;
+  }
   p {
     font-size: 11px;
+    color: #8c949b;
     @media screen and (max-width: 980px) {
       margin-left: 20px;
     }
