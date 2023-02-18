@@ -1,8 +1,7 @@
-import React from "react";
-import QButton from "../components/QButton";
-import QLists from "../components/QLists";
-import Header from "../components/Header";
-import NavBar from "../components/NavBar";
+import QButton from '../components/QButton';
+import QLists from '../components/QLists';
+import Header from '../components/Header';
+import NavBar from '../components/NavBar';
 
 //* SEARCH_001 검색 결과
 function Search() {

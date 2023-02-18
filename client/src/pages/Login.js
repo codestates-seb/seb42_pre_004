@@ -1,5 +1,4 @@
-import React from "react";
-import LoginForm from "../components/LoginForm";
+import LoginForm from '../components/LoginForm';
 
 //* LOGIN_001
 // TODO  로그아웃 시, alert 창 + 홈으로 돌아가기

@@ -1,5 +1,4 @@
-import React from "react";
-import SignUpForm from "../components/SignUpForm";
+import SignUpForm from '../components/SignUpForm';
 
 //* SIGNUP_001
 function SignUp() {

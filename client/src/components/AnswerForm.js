@@ -1,5 +1,3 @@
-import React from "react";
-
 function AnswerForm() {
   return (
     <div>

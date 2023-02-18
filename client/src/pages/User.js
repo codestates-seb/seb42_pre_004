@@ -1,6 +1,5 @@
-import React from "react";
-import Header from "../components/Header";
-import NavBar from "../components/NavBar";
+import Header from '../components/Header';
+import NavBar from '../components/NavBar';
 
 //* USER_001 유저 상세조회
 function User() {

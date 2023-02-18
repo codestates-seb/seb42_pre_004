@@ -1,5 +1,3 @@
-import React from 'react';
-
 //* 질문 리스트 조건부 렌더링하기
 function QLists() {
   return (

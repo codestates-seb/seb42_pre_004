@@ -1,8 +1,7 @@
-import React from "react";
-import AnswerForm from "../components/AnswerForm";
-import QButton from "../components/QButton";
-import Header from "../components/Header";
-import NavBar from "../components/NavBar";
+import AnswerForm from '../components/AnswerForm';
+import QButton from '../components/QButton';
+import Header from '../components/Header';
+import NavBar from '../components/NavBar';
 
 //* VIEW_01
 function View() {

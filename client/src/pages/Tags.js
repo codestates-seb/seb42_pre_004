@@ -1,7 +1,6 @@
-import React from "react";
-import Tag from "../components/Tag";
-import Header from "../components/Header";
-import NavBar from "../components/NavBar";
+import Tag from '../components/Tag';
+import Header from '../components/Header';
+import NavBar from '../components/NavBar';
 
 //* HOME_003
 function Tags() {

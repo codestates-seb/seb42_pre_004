@@ -1,16 +1,15 @@
-import "./App.css";
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import Search from "./pages/Search";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import Questions from "./pages/Questions";
-import View from "./pages/View";
-import Tags from "./pages/Tags";
-import Users from "./pages/Users";
-import QButton from "./components/QButton";
-import Ask from "./pages/Ask";
+import './App.css';
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Questions from './pages/Questions';
+import View from './pages/View';
+import Tags from './pages/Tags';
+import Users from './pages/Users';
+import QButton from './components/QButton';
+import Ask from './pages/Ask';
 
 function App() {
   return (

@@ -1,5 +1,4 @@
-import React from "react";
-import AskForm from "../components/AskForm";
+import AskForm from '../components/AskForm';
 
 //* VIEW_02 질문 새로 입력하기
 function Ask() {

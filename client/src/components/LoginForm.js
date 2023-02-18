@@ -1,11 +1,9 @@
-import React from "react";
-
 function LoginForm() {
   return (
     <div>
       email, password from <br />
       login button <br />
-      Don't have an account? sign up (link to signup page)
+      {`Don't have an account? sign up (link to signup page)`}
     </div>
   );
 }
