@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import {
+  faInbox,
+  faTrophy,
+  faCircleQuestion,
+} from '@fortawesome/free-solid-svg-icons';
+import { faStackExchange } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { useState } from 'react';
 
-//* 상단 바 (아이콘, 서치바, 유저 아바타, 로그아웃 버튼)
-//로그인한 상태랑 안한 상태랑 헤더 다름
 const HeaderContainer = styled.header`
   width: 100%;
   min-width: auto;
@@ -54,6 +60,10 @@ const HeaderContainer = styled.header`
       padding: 6px 12px;
       margin: 2px;
       white-space: nowrap;
+      &:hover {
+        background-color: hsl(210deg 8% 90%);
+        border-radius: 1000px;
+      }
     }
   }
 `;
@@ -79,49 +89,39 @@ const SearchInput = styled.input`
     border-color: hsl(206, 100%, 40%);
   }
 `;
-const ButtonContainer = styled.div`
+const OlList = styled.ol`
   display: flex;
-  > button {
-    padding: 8px 10px;
-    box-shadow: inset 0 1px 0 0 hsl(0deg 0% 100% / 40%);
-    border-radius: 3px;
-    font-size: 13px;
-    font-weight: 400;
-    opacity: 1;
-    border: 1px solid hsl(205, 41%, 63%);
-    position: relative;
+  > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 3rem;
+    color: #727272;
+    font-size: 18px;
+    &:hover {
+      background-color: hsl(210deg 8% 90%);
+    }
+    &:first-child {
+      width: 64px;
+      margin: 0 5px;
+    }
+    &:last-child {
+      position: relative;
+    }
   }
 `;
-const LoginButton = styled.button`
-  width: 58.2px;
-  height: 33px;
-  margin: 4px;
-  color: hsl(205, 47%, 42%);
-  background-color: hsl(205, 46%, 92%);
-  border: hsl(205, 41%, 63%);
+const UserImg = styled.img`
+  width: 30px;
+  border-radius: 8px;
+`;
 
-  &:hover {
-    text-decoration: none;
-    background-color: hsl(205, 57%, 81%);
-  }
-`;
+export default function HeaderAfterLogin() {
+  // const [openModal, setOpenModal] = useState(false);
 
-const SignupButton = styled.button`
-  width: 66.88px;
-  height: 33px;
-  color: #fff;
-  background-color: hsl(206, 100%, 52%);
-  border: transparent;
-  line-height: 15px;
-  align-self: center;
-  text-align: center;
-  white-space: nowrap;
-  &:hover {
-    text-decoration: none;
-    background-color: hsl(205, 46%, 32%);
-  }
-`;
-function Header() {
+  // const handlerLogoutModal = () => {
+  //   setOpenModal(!openModal);
+  // };
   return (
     <HeaderContainer className="header__header">
       <div className="div__header-container">
@@ -135,22 +135,31 @@ function Header() {
           </Link>
         </h1>
         <ul className="ul__header-list">
-          <li>About</li>
           <li>Products</li>
-          <li>For Teams</li>
         </ul>
         <SearchContainer className="form__searchinput">
           <SearchInput className="input__search" placeholder="Search..." />
         </SearchContainer>
       </div>
-      <ButtonContainer className="div__button-container">
-        <LoginButton className="button__login-button">
-          <Link to="/login">Log in</Link>
-        </LoginButton>
-        <SignupButton className="button__signup-button">Sign up</SignupButton>
-      </ButtonContainer>
+      <OlList className="ol__header-list">
+        <li>
+          <UserImg alt="user" src="img/user.png" />
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faInbox} />
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faTrophy} />
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faCircleQuestion} />
+        </li>
+        {/* <li onClick={handlerLogoutModal}> */}
+        <li>
+          <FontAwesomeIcon icon={faStackExchange} />
+          {/* {openModal && } */}
+        </li>
+      </OlList>
     </HeaderContainer>
   );
 }
-
-export default Header;
