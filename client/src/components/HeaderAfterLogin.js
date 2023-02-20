@@ -7,7 +7,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStackExchange } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { useState } from 'react';
+import { useState } from 'react';
+import { FaStackOverflow } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -116,12 +117,69 @@ const UserImg = styled.img`
   border-radius: 8px;
 `;
 
-export default function HeaderAfterLogin() {
-  // const [openModal, setOpenModal] = useState(false);
+const CommunityModal = styled.div`
+  width: 375px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  background-color: white;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05), 0 1px 4px hsla(0, 0%, 0%, 0.05),
+    0 2px 8px hsla(0, 0%, 0%, 0.05);
+`;
 
-  // const handlerLogoutModal = () => {
-  //   setOpenModal(!openModal);
-  // };
+const ModalTitle = styled.div`
+  width: 100%;
+  height: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0074cc;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  background-color: #f1f2f3;
+  &:hover {
+    cursor: pointer;
+    color: hsl(206, 100%, 52%);
+  }
+`;
+
+const ModalContent = styled.div`
+  width: 100%;
+  height: 60px;
+  font-size: 12px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8px;
+  .span__community-content {
+    color: #0074cc;
+    font-weight: 700;
+    &:hover {
+      color: hsl(206, 100%, 52%);
+    }
+  }
+  .span__content {
+    color: #3b4045;
+    padding: 2px 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .loginout {
+    color: #0074cc;
+    &:hover {
+      color: hsl(206, 100%, 52%);
+    }
+  }
+`;
+export default function HeaderAfterLogin() {
+  const [modal, setModal] = useState(null);
+
+  const handleClickMenu = (menu) => {
+    if (menu === modal) setModal(null);
+    else setModal(menu);
+  };
   return (
     <HeaderContainer className="header__header">
       <div className="div__header-container">
@@ -154,10 +212,37 @@ export default function HeaderAfterLogin() {
         <li>
           <FontAwesomeIcon icon={faCircleQuestion} />
         </li>
-        {/* <li onClick={handlerLogoutModal}> */}
+
         <li>
-          <FontAwesomeIcon icon={faStackExchange} />
-          {/* {openModal && } */}
+          <FontAwesomeIcon
+            onClick={() => handleClickMenu('community')}
+            icon={faStackExchange}
+          />
+          {modal === 'community' ? (
+            <CommunityModal className="div__community-modal">
+              <ModalTitle className="div__community-modal-Title">
+                CURRENT COMMUNITY
+              </ModalTitle>
+              <ModalContent className="div__community-content">
+                <span className="span__community-content">
+                  <FaStackOverflow />
+                  Stack Overflow
+                </span>
+                <Link to="/">
+                  <span className="span__content logout">Logout</span>
+                </Link>
+              </ModalContent>
+
+              <ModalTitle className="div__community-modal-Title">
+                MORE STACK EXCHANGE COMMUNITIES
+              </ModalTitle>
+              <ModalContent className="div__community-content">
+                <span className="span__content">3D Printing</span>
+                <span className="span__content">Academia</span>
+                <span className="span__content">Amateur Radio</span>
+              </ModalContent>
+            </CommunityModal>
+          ) : null}
         </li>
       </OlList>
     </HeaderContainer>
