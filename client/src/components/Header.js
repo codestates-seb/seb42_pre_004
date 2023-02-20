@@ -99,7 +99,12 @@ const LoginButton = styled.button`
   color: hsl(205, 47%, 42%);
   background-color: hsl(205, 46%, 92%);
   border: hsl(205, 41%, 63%);
-
+  a:hover,
+  a:active,
+  a:visited {
+    text-decoration: none;
+    color: hsl(205, 46%, 32%);
+  }
   &:hover {
     text-decoration: none;
     background-color: hsl(205, 57%, 81%);
@@ -116,6 +121,12 @@ const SignupButton = styled.button`
   align-self: center;
   text-align: center;
   white-space: nowrap;
+  a:hover,
+  a:active,
+  a:visited {
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+  }
   &:hover {
     text-decoration: none;
     background-color: hsl(205, 46%, 32%);
@@ -147,7 +158,9 @@ function Header() {
         <LoginButton className="button__login-button">
           <Link to="/login">Log in</Link>
         </LoginButton>
-        <SignupButton className="button__signup-button">Sign up</SignupButton>
+        <SignupButton className="button__signup-button">
+          <Link to="/signup"> Sign up</Link>
+        </SignupButton>
       </ButtonContainer>
     </HeaderContainer>
   );
