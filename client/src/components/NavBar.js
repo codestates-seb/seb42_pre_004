@@ -6,13 +6,17 @@ import { useEffect, useState } from 'react';
 
 const Container = styled.div`
   width: 164px;
-  position: relative;
   display: block;
-  height: 380px;
+  margin-top: 20px;
+  height: auto;
+  position: relative;
 `;
 
 const StickyContainer = styled.div`
   position: sticky;
+  max-height: 100vh;
+  height: 380px;
+  top: 10px;
 
   .nav-selected__a {
     font-weight: bold;
@@ -32,7 +36,7 @@ const StickyContainer = styled.div`
     padding-left: 5px;
   }
   li {
-    margin: 10px;
+    padding: 10px;
     font-size: 15px;
     height: 34px;
     display: flex;
