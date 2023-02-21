@@ -4,6 +4,9 @@ import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import ThumbsUpDownIcon from '@mui/icons-material/ThumbsUpDown';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import GoogleIcon from '@mui/icons-material/Google';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import { useState } from 'react';
 
 const Container = styled.div`
@@ -33,6 +36,51 @@ const SignUpContents = styled.div`
   .signup-infobottom__div {
     font-size: 13px;
   }
+  .signup-oauth__div {
+    display: flex;
+    flex-direction: column;
+  }
+  .signup-oauth__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 0.1px solid;
+    height: 38px;
+    margin-bottom: 10px;
+    span {
+      margin-left: 5px;
+    }
+  }
+  .oauth-google__button {
+    background-color: white;
+    :hover {
+      background-color: #f8f9f9;
+    }
+    :active {
+      background-color: #f1f2f3;
+    }
+  }
+  .oauth-github__button {
+    background-color: #2f3337;
+    color: white;
+    :hover {
+      background-color: #232629;
+    }
+    :active {
+      background-color: #0c0d0e;
+    }
+  }
+  .oauth-facebook__button {
+    background-color: #385499;
+    color: white;
+    :hover {
+      background-color: #304986;
+    }
+    :active {
+      background-color: #2a3f73;
+    }
+  }
   .signup-form__div {
     padding: 24px;
     background-color: white;
@@ -52,7 +100,18 @@ const SignUpContents = styled.div`
     height: 33px;
     font-size: 15px;
     padding-left: 10px;
+    &:focus {
+      box-shadow: 0px 0px 0px 4px hsl(205, 53%, 88%);
+      border-color: hsl(206, 100%, 40%);
+      outline: 4px solid #cde9fe;
+    }
   }
+  .signup-incorrect__input {
+    box-shadow: 0px 0px 0px 4px hsl(0, 53%, 88%);
+    border-color: red;
+    outline: 4px solid hsl(0, 53%, 88%);
+  }
+
   .signup-incorrect__div {
     color: red;
     font-size: 14px;
@@ -172,11 +231,29 @@ function SignUpForm() {
           </div>
         </div>
         <div className="signup-division__div">
+          <div className="signup-oauth__div">
+            <button className="signup-oauth__button oauth-google__button">
+              <SvgIcon component={GoogleIcon} />
+              <span>Sign Up with Google</span>
+            </button>
+            <button className="signup-oauth__button oauth-github__button">
+              <SvgIcon component={GitHubIcon} />
+              <span>Sign Up with Github</span>
+            </button>
+            <button className="signup-oauth__button oauth-facebook__button">
+              <SvgIcon component={FacebookIcon} />
+              <span>Sign Up with Facebook</span>
+            </button>
+          </div>
           <div className="signup-form__div">
             <div className="signup-input__div">
               <label htmlFor="inputDisplayName">Display name</label>
               <input
-                className="signup-input__input"
+                className={
+                  isError && inputName.length < 4
+                    ? 'signup-input__input signup-incorrect__input'
+                    : 'signup-input__input'
+                }
                 type="text"
                 id="inputDisplayName"
                 onChange={(e) => setInputName(e.target.value)}
@@ -194,7 +271,11 @@ function SignUpForm() {
             <div className="signup-input__div">
               <label htmlFor="inputEmail">Email</label>
               <input
-                className="signup-input__input"
+                className={
+                  isError && !emailCheck(inputEmail)
+                    ? 'signup-input__input signup-incorrect__input'
+                    : 'signup-input__input'
+                }
                 type="text"
                 id="inputEmail"
                 onChange={(e) => setInputEmail(e.target.value)}
@@ -212,7 +293,11 @@ function SignUpForm() {
             <div className="signup-input__div">
               <label htmlFor="inputPassword">password</label>
               <input
-                className="signup-input__input"
+                className={
+                  isError && inputPassword.length < 8
+                    ? 'signup-input__input signup-incorrect__input'
+                    : 'signup-input__input'
+                }
                 type="password"
                 id="inputPassword"
                 onChange={(e) => setInputPassword(e.target.value)}
