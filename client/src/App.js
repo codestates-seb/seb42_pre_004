@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Login from './pages/Login';
@@ -8,13 +8,13 @@ import Questions from './pages/Questions';
 import View from './pages/View';
 import Tags from './pages/Tags';
 import Users from './pages/Users';
-import QButton from './components/QButton';
+// import QButton from './components/QButton';
 import Ask from './pages/Ask';
 
 function App() {
   return (
     <div className="App">
-      <div>
+      {/* <div>
         <Link to="/">Home</Link>
         <Link to="/search">Search</Link>
         <Link to="/login">Login</Link>
@@ -24,7 +24,7 @@ function App() {
         <Link to="/tags">Tags</Link>
         <Link to="/users">Users</Link>
         <Link to="/ask">{<QButton />}</Link>
-      </div>
+      </div> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
