@@ -31,6 +31,10 @@ const LoginContainer = styled.div`
     text-decoration: none;
     color: hsl(206, 100%, 40%);
   }
+  .div__signup {
+    text-decoration: none;
+    color: hsl(206, 100%, 40%);
+  }
 `;
 const Logo = styled.img`
   width: 52px;
@@ -77,7 +81,7 @@ const LoginInput = styled.input`
     outline: 4px solid #cde9fe;
   }
 `;
-const ForgetLink = styled.a`
+const ForgetLink = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -119,10 +123,7 @@ function LoginForm() {
             <LoginInput className="input__email" type="text"></LoginInput>
             <div className="label">
               Password
-              <ForgetLink
-                className="a__forgot-email"
-                href="https://stackoverflow.com/users/account-recovery"
-              >
+              <ForgetLink className="div__forgot-email">
                 Forgot password?
               </ForgetLink>
             </div>
@@ -140,9 +141,7 @@ function LoginForm() {
           </div>
           <div className="div__employer-link">
             Are you an employer?
-            <a href="https://talent.stackoverflow.com/users/login">
-              Sign up on Talent
-            </a>
+            <div className="div__signup">Sign up on Talent</div>
           </div>
         </div>
       </div>
