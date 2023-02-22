@@ -2,12 +2,14 @@ import AskForm from '../components/AskForm';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import styled from 'styled-components';
+import './Ask.css';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 25px;
   h1 {
+    margin-left: 25px;
     margin-top: 100px;
   }
 `;
@@ -15,7 +17,7 @@ const Guide = styled.div`
   background-color: #edf4fa;
   border: 1px solid #aecdea;
   border-radius: 3px;
-  width: 800px;
+  width: 1000px;
   height: auto;
   padding: 5px 15px;
   padding-bottom: 20px;
@@ -36,7 +38,7 @@ const Guide = styled.div`
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 500px;
+  margin-top: 450px;
   float: right;
   width: 310px;
   height: auto;

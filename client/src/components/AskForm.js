@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 const TitleForm = styled.div`
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: 1000px;
   height: auto;
   margin-left: 25px;
   margin-bottom: 25px;
@@ -40,7 +40,7 @@ const TitleForm = styled.div`
 `;
 
 const Container = styled.div`
-  width: 800px;
+  width: 1000px;
   margin-left: 25px;
   margin-bottom: 25px;
   border: 1px solid lightgrey;
@@ -53,9 +53,33 @@ const Container = styled.div`
   p {
     margin
   }
-  button {
-    margin-top: 20px;
+`;
+
+const TagForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: auto;
+  margin-left: 25px;
+  margin-bottom: 40px;
+  border: 1px solid lightgrey;
+  padding: 5px 20px;
+  padding-bottom: 10px;
+  h4 {
     margin-bottom: 10px;
+  }
+  p {
+    margin-top: 0px;
+  }
+  input {
+    width: 750px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgrey;
+  }
+  button {
+    margin-top: 10px;
     width: 5%;
     background-color: #0a95ff;
     color: white;
@@ -66,7 +90,6 @@ const Container = styled.div`
     color: lightgray;
   }
 `;
-
 function AskForm() {
   return (
     <div>
@@ -121,6 +144,16 @@ function AskForm() {
         ></Editor>
         <Button>Next</Button>
       </Container>
+      <TagForm>
+        <h4>Tags</h4>
+        <p>
+          Add up to 5 tags to describe what your question is about. Start typing
+          to see sugestions.
+        </p>
+        <input type="text" placeholder="e.g.(vba css json)"></input>
+        <Button>Next</Button>
+      </TagForm>
+      <Button className="discard">Discard draft</Button>
     </div>
   );
 }
