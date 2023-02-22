@@ -28,13 +28,20 @@ const ContentContainer = styled.div`
   flex-direction: column;
   padding: 24px;
   width: calc(100% - 276px);
+  @media screen and (max-width: 980px) {
+    width: 100%;
+  }
 `;
 
 const MainTop = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  white-space: nowrap;
   h1 {
     font-weight: 400;
+    margin: 0 0 25px;
   }
 `;
 

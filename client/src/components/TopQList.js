@@ -17,6 +17,20 @@ const QStatus = styled.div`
   align-items: flex-end;
   margin-right: 16px;
   gap: 6px;
+  .topques-votecount__span {
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 3px;
+  }
+  .topques-qstatuscount__span {
+    font-size: 13px;
+    color: #8d939a;
+    font-weight: bold;
+    margin-right: 3px;
+  }
+  .topques-qstatus__span {
+    color: #8d939a;
+  }
   div {
     font-size: 13px;
   }
@@ -25,7 +39,7 @@ const QStatus = styled.div`
 const QContent = styled.div`
   flex-grow: 1;
   max-width: 100%;
-  .TopQues-title__h3 {
+  .topques-title__h3 {
     font-weight: 400;
     vertical-align: text-top;
     margin: 0;
@@ -40,12 +54,19 @@ const QContent = styled.div`
 const QInfo = styled.div`
   display: flex;
   justify-content: space-between;
-  .TopQues-user__img {
+  margin-top: 10px;
+  .topques-user__img {
     width: 20px;
     height: 20px;
     border-radius: 3px;
   }
-  .TopQues-taglist__ul {
+  .topques-taglist__ul {
+    li {
+      float: left;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      white-space: nowrap;
+    }
     a {
       background-color: #e1ecf4;
       padding: 3px;
@@ -58,11 +79,18 @@ const QInfo = styled.div`
       }
     }
   }
+  .topques-reputation__div {
+    font-weight: bold;
+  }
+  div {
+    margin-right: 3px;
+  }
 `;
 
 const UserInfoWrap = styled.div`
   display: flex;
   font-size: 12px;
+  padding-top: 5px;
   .topques-username__a {
     color: #39739d;
     :hover {
@@ -72,45 +100,47 @@ const UserInfoWrap = styled.div`
 `;
 
 function TopQList() {
-  const url = '/';
+  const titleUrl = '/';
+  const tagLinkUrl = '/';
+  const userProfileUrl = '/';
   return (
     <Container>
       <QStatus>
         <div>
-          <span>0</span>
-          <span>votes</span>
+          <span className="topques-votecount__span">0</span>
+          <span className="topques-vote__span">votes</span>
         </div>
         <div>
-          <span>0</span>
-          <span>answers</span>
+          <span className="topques-qstatuscount__span">0</span>
+          <span className="topques-qstatus__span">answers</span>
         </div>
         <div>
-          <span>0</span>
-          <span>views</span>
+          <span className="topques-qstatuscount__span">0</span>
+          <span className="topques-qstatus__span">views</span>
         </div>
       </QStatus>
       <QContent>
-        <h3 className="TopQues-title__h3">
-          <a href="/">
+        <h3 className="topques-title__h3">
+          <a href={titleUrl}>
             title title title title title title title title title title title
             title
           </a>
         </h3>
         <QInfo>
           <div>
-            <ul className="TopQues-taglist__ul">
+            <ul className="topques-taglist__ul">
               <li>
                 {/* tag 링크 */}
-                <a href={`${url}`}>태그명</a>
+                <a href={tagLinkUrl}>태그명</a>
               </li>
             </ul>
           </div>
           <UserInfoWrap>
             <div>
               {/* 유저프로필 링크 */}
-              <a href={`${url}`}>
+              <a href={userProfileUrl}>
                 <img
-                  className="TopQues-user__img"
+                  className="topques-user__img"
                   src="/img/user.png"
                   alt="userprofile"
                 ></img>
@@ -118,11 +148,11 @@ function TopQList() {
             </div>
             <div>
               {/* 유저프로필 링크 */}
-              <a className="topques-username__a" href={`${url}`}>
+              <a className="topques-username__a" href={userProfileUrl}>
                 username
               </a>{' '}
             </div>
-            <div>answer count</div>
+            <div className="topques-reputation__div">1</div>
             <div>asked 00 ago</div>
           </UserInfoWrap>
         </QInfo>

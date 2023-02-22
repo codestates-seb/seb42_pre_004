@@ -4,30 +4,6 @@ function TopQLists() {
   return (
     <div>
       <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
-      <TopQList />
     </div>
   );
 }
