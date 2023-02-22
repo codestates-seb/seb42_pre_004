@@ -112,6 +112,67 @@ const FilterButton = styled.button`
     color: #525960;
   }
 `;
+const TagGridContainer = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 20px;
+  width: 100%;
+  @media screen and (max-width: 1345px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media screen and (max-width: 1028px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media screen and (max-width: 711px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+`;
+const TagContents = styled.li`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 177px;
+  padding: 13px;
+  border: 1px solid #d6d9dc;
+  border-radius: 3px;
+`;
+const Tag = styled.button`
+  display: inline-block;
+  width: min-content;
+  padding: 6px 6px;
+  margin: 0 6px 13px 0;
+  background-color: #e1ecf4;
+  font-size: 12px;
+  color: #39739d;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d0e3f1;
+    color: #2c5877;
+  }
+`;
+
+const Content = styled.div`
+  display: inline-block;
+  width: 99%;
+  height: 70px;
+  margin-bottom: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  white-space: normal;
+  line-height: 1.4;
+  height: 5.6em;
+  color: #3b4045;
+  text-align: left;
+  word-wrap: break-word; // 단어 단위로 줄바꿈
+  display: -webkit-box; // 유연하게 height를 증감시킬 수 있는 플렉스 박스형태로 변환
+  -webkit-line-clamp: 4; // 보여줄 줄 수
+  -webkit-box-orient: vertical; // 플렉스 박스의 방향 설정(가로)
+`;
+
 function Tags() {
   return (
     <>
@@ -139,6 +200,14 @@ function Tags() {
               </FilterButtons>
             </FormButtonContent>
           </TagHeader>
+          <TagGridContainer>
+            <TagContents>
+              <Tag>javascript</Tag>
+              <Content>
+                {`For questions about programming in ECMAScript (JavaScript/JS) and its different dialects/implementations (except for ActionScript). Keep in mind that JavaScript is NOT the same as Java! Include all labels that are relevant to your question; e.g., [node.js], [jQuery], [JSON], [ReactJS], [angular], [ember.js], [vue.js], [typescript], [svelte], etc.`}
+              </Content>
+            </TagContents>
+          </TagGridContainer>
         </TagContainer>
       </Container>
     </>
