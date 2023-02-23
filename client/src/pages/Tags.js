@@ -183,7 +183,7 @@ const Content = styled.div`
   -webkit-box-orient: vertical; // 플렉스 박스의 방향 설정(가로)
 `;
 
-function Tags() {
+function Tags({ tags }) {
   return (
     <>
       <Wrapper>
@@ -214,10 +214,8 @@ function Tags() {
               </TagHeader>
               <TagGridContainer>
                 <TagContents>
-                  <Tag>javascript</Tag>
-                  <Content>
-                    {`For questions about programming in ECMAScript (JavaScript/JS) and its different dialects/implementations (except for ActionScript). Keep in mind that JavaScript is NOT the same as Java! Include all labels that are relevant to your question; e.g., [node.js], [jQuery], [JSON], [ReactJS], [angular], [ember.js], [vue.js], [typescript], [svelte], etc.`}
-                  </Content>
+                  <Tag>{tags.title}</Tag>
+                  <Content>{tags.text}</Content>
                 </TagContents>
               </TagGridContainer>
             </TagContainer>
