@@ -11,6 +11,12 @@ const Wrapper = styled.div`
   padding-top: 50px;
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+`;
+
 const Container = styled.div`
   flex-wrap: nowrap;
   display: flex;
@@ -43,6 +49,7 @@ const TagHeader = styled.header`
     vertical-align: baseline;
   }
 `;
+
 const Title = styled.h1`
   font-weight: 400;
   margin: 0 0 25px;
