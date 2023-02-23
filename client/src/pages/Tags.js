@@ -4,6 +4,12 @@ import Header from '../components/Header';
 import NavBar from '../components/NavBar';
 import { BsSearch } from 'react-icons/bs';
 import Footer from '../components/Footer';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { useEffect } from 'react';
+import getTagsSLice from '../redux/slice/getTags';
+import Tagtitle from '../components/Tagtitle';
+import TagContent from '../components/TagContent';
 
 const Wrapper = styled.div`
   display: flex;
@@ -138,52 +144,24 @@ const TagGridContainer = styled.ul`
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 `;
-const TagContents = styled.li`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 177px;
-  padding: 13px;
-  border: 1px solid #d6d9dc;
-  border-radius: 3px;
-`;
-const Tag = styled.button`
-  display: inline-block;
-  width: min-content;
-  padding: 6px 6px;
-  margin: 0 6px 13px 0;
-  background-color: #e1ecf4;
-  font-size: 12px;
-  color: #39739d;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  &:hover {
-    background-color: #d0e3f1;
-    color: #2c5877;
-  }
-`;
 
-const Content = styled.div`
-  display: inline-block;
-  width: 99%;
-  height: 70px;
-  margin-bottom: 13px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 13px;
-  white-space: normal;
-  line-height: 1.4;
-  height: 5.6em;
-  color: #3b4045;
-  text-align: left;
-  word-wrap: break-word; // 단어 단위로 줄바꿈
-  display: -webkit-box; // 유연하게 height를 증감시킬 수 있는 플렉스 박스형태로 변환
-  -webkit-line-clamp: 4; // 보여줄 줄 수
-  -webkit-box-orient: vertical; // 플렉스 박스의 방향 설정(가로)
-`;
+function Tags() {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => {
+    return state.getTags.tags;
+  });
+  useEffect(() => {
+    const getTagsData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3003/tags');
+        dispatch(getTagsSLice.actions.get(response.data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getTagsData();
+  }, []);
 
-function Tags({ tags }) {
   return (
     <>
       <Wrapper>
@@ -213,10 +191,8 @@ function Tags({ tags }) {
                 </FormButtonContent>
               </TagHeader>
               <TagGridContainer>
-                <TagContents>
-                  <Tag>{tags.title}</Tag>
-                  <Content>{tags.text}</Content>
-                </TagContents>
+                <Tagtitle data={data} />
+                <TagContent data={data} />
               </TagGridContainer>
             </TagContainer>
           </div>
