@@ -200,6 +200,25 @@ function ViewEdit() {
       getQuestionSlice.actions.get({ ...question, title: e.target.value })
     );
   };
+  const saveClickHandler = () => {
+    if (window.confirm('수정하시겠습니까?')) {
+      const patchData = async () => {
+        try {
+          await axios({
+            url: 'http://localhost:3001/response',
+            method: 'patch',
+            data: {
+              title: question.title,
+              content: question.content,
+            },
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      patchData();
+    }
+  };
   return (
     <div>
       <Container>
@@ -235,7 +254,10 @@ function ViewEdit() {
                   </div>
                   <div className="edit-body__div">
                     <label htmlFor="body">Body</label>
-                    <ViewEditEditor question={question} id="body" />
+                    {question && (
+                      <ViewEditEditor question={question} id="body" />
+                    )}
+                    {/* <ViewEditEditor question={question} id="body" /> */}
                     <ViewEditRender />
                   </div>
                   <div className="edit-tags__div">
@@ -254,7 +276,11 @@ function ViewEdit() {
                     </div>
                   </div>
                   <div className="edit-buttons__div">
-                    <button className="edit-save__button" type="submit">
+                    <button
+                      className="edit-save__button"
+                      type="submit"
+                      onClick={saveClickHandler}
+                    >
                       Save edits
                     </button>
                     <button className="edit-cancel__button" type="button">

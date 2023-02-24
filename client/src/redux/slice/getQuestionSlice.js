@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const getQuestionSlice = createSlice({
   name: 'getQuestion',
-  initialState: { response: [] },
+  initialState: { response: {} },
   reducers: {
     get: (state, action) => {
       state.response = action.payload;
