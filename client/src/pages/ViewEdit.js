@@ -98,6 +98,11 @@ const EditForm = styled.div`
       color: #2c5877;
     }
   }
+  .edit-tag__input {
+    width: 100%;
+    border: none;
+    outline: none;
+  }
   .edit-buttons__div {
     margin-top: 15px;
   }
@@ -271,8 +276,7 @@ function ViewEdit() {
                             </span>
                           );
                         })}
-                      <input hidden="hidden" />
-                      <input type="text"></input>
+                      <input className="edit-tag__input" type="text"></input>
                     </div>
                   </div>
                   <div className="edit-buttons__div">
