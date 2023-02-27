@@ -70,13 +70,7 @@ const ListHeader = styled.div`
       border-right: 0.1px solid hsl(210, 8%, 55%);
       border-radius: 0px 5px 5px 0px;
     }
-    button {
-      .allques-selectedtab__button {
-        background-color: #e3e6e8 !important;
-      }
-      .allques-selectedtab__button {
-        background-color: #e3e6e8 !important;
-      }
+    .allques-sorttab__button {
       background-color: white;
       border: none;
       border-top: 0.1px solid hsl(210, 8%, 55%);
@@ -87,6 +81,9 @@ const ListHeader = styled.div`
         color: hsl(210, 8%, 35%);
         background-color: hsl(210, 8%, 97.5%);
       }
+    }
+    .allques-selectedtab__button {
+      background-color: #e3e6e8 !important;
     }
   }
   .allques-count__span {
@@ -125,8 +122,8 @@ function Questions() {
                   <button
                     className={
                       selectedTab === 'Newest'
-                        ? '.allques-selectedtab__button'
-                        : ''
+                        ? 'allques-selectedtab__button allques-sorttab__button'
+                        : 'allques-sorttab__button'
                     }
                     onClick={(e) => {
                       setSelectedTab(e.target.textContent);
@@ -139,8 +136,8 @@ function Questions() {
                   <button
                     className={
                       selectedTab === 'Active'
-                        ? '.allques-selectedtab__button'
-                        : ''
+                        ? 'allques-selectedtab__button allques-sorttab__button'
+                        : 'allques-sorttab__button'
                     }
                     onClick={(e) => {
                       setSelectedTab(e.target.textContent);
@@ -152,8 +149,8 @@ function Questions() {
                   <button
                     className={
                       selectedTab === 'Unanswered'
-                        ? '.allques-selectedtab__button'
-                        : ''
+                        ? 'allques-selectedtab__button allques-sorttab__button'
+                        : 'allques-sorttab__button'
                     }
                     onClick={(e) => {
                       setSelectedTab(e.target.textContent);

@@ -108,7 +108,7 @@ const UserInfoWrap = styled.div`
 `;
 
 function QList({ question }) {
-  const titleUrl = `/questions/${question.id}`;
+  const titleUrl = `/view/${question.id}`;
   const tagLinkUrl = '/';
   const userProfileUrl = '/';
   return (
