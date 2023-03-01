@@ -5,12 +5,12 @@ import Header from '../components/Layout/Header';
 import NavBar from '../components/Layout/NavBar';
 import Footer from '../components/Layout/Footer';
 import Sidebar from '../components/Layout/Sidebar';
-import QViewDetail from '../components/Questions/Question/QViewDetail';
-import QView from '../components/Questions/Question/QView';
+import QViewDetail from '../components/QuestionDetail/Question/QViewDetail';
+import QView from '../components/QuestionDetail/Question/QView';
 import styled from 'styled-components';
-import AnswerForm from '../components/Questions/Answeer/AnswerForm';
-import AnswerView from '../components/Questions/Answeer/AnswerView';
-import NoAnswerView from '../components/Questions/Answeer/NoAnswerView';
+import AnswerForm from '../components/QuestionDetail/Answeer/AnswerForm';
+import AnswerView from '../components/QuestionDetail/Answeer/AnswerView';
+import NoAnswerView from '../components/QuestionDetail/Answeer/NoAnswerView';
 import getAnswerSlice from '../redux/slice/getAnswer';
 
 //* VIEW_01
