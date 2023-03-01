@@ -123,7 +123,6 @@ function Users() {
       const response = await axios.get(
         'http://13.125.211.79:8080/users?page=0&size=28'
       );
-      console.log(response);
       setUserLists([...response.data.content]);
     } catch (error) {
       console.log(error);
