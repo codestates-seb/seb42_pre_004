@@ -136,12 +136,16 @@ function LoginForm() {
         { username: email, password },
         { withCredentials: true }
       )
+      .then((res) => {
+        axios.defaults.headers.common[
+          'Authorization'
+        ] = `Bearer ${res.payload.accessToken}`;
+      })
       .catch((err) => {
         console.log(err);
       });
 
     // every request after we log in, we will heave A header with Bearer token
-    axios.defaults.headers.common['Authorization'] = 'Bearer ${data[token]}';
 
     //* '/user'에서 내 정보 조회해서 가져오기
     axios
@@ -164,7 +168,7 @@ function LoginForm() {
   };
 
   // //* 로그인 성공 시, Home 으로 이동
-
+  // TODO 이메일 전송 완료 alert 쓰기
   return (
     <LoginContainer className="div__login-container">
       <div className="div__login-content">
