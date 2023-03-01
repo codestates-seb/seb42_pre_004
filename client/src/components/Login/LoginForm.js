@@ -6,6 +6,7 @@ import axios from 'axios';
 import { userSlice } from '../../redux/slice/userSlice';
 import { useDispatch } from 'react-redux';
 
+
 const LoginContainer = styled.div`
   height: 100vh;
   background-color: #f2f2f3;
@@ -117,6 +118,7 @@ function LoginForm() {
   // const [navigate, setNavigate] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   //* 입력받은 email, password 백엔드로 전송 + navigate 처리
   const submit = async (e) => {
     e.preventDefault();
@@ -127,6 +129,7 @@ function LoginForm() {
     } else {
       setErrorMessage('');
     }
+
     // 응답으로 받은 access token을 data 에 담음
     // refresh token 을 쿠키로 받으려면 withCredentials: true가 필요함
     // 개발자도구의 application -> cookie에 refresh token이 담김
@@ -169,6 +172,7 @@ function LoginForm() {
 
   // //* 로그인 성공 시, Home 으로 이동
   // TODO 이메일 전송 완료 alert 쓰기
+
   return (
     <LoginContainer className="div__login-container">
       <div className="div__login-content">
